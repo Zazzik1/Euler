@@ -21,6 +21,7 @@ class YeastEuler(Euler):
     E: float = 0 # ethanol concentration [g/L]
 
     def initial_values(self):
+        """ Setting initial values for variables used in diff equations. """
         self.N_list = []
         self.S_list = []
         self.E_list = []
@@ -64,6 +65,7 @@ class YeastEuler(Euler):
         return u, beta
 
     def diff_equation_system(self, x: float, dx: float) -> float:
+        """ System of diff equations. """
         u, beta = self.u_beta()
         
         self._equation_Xv(dx, u)
