@@ -6,7 +6,7 @@ class Euler(ABC):
     """ Base class for calculating diff equations using Euler's method. """
     @abstractmethod
     def initial_values(self) -> None:
-        """ Here assign initial values of variables. That method will be executed at the beggining of calculation. """
+        """ Here assign initial values of variables. That method will be executed at the beginning of calculation. """
         pass
         
     @abstractmethod
