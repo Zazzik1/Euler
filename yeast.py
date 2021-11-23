@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
 from src.euler import Euler
+import matplotlib.pyplot as plt
 
 class constants():
     u_max = 0.16 # [1/h]
@@ -75,12 +76,16 @@ class YeastEuler(Euler):
 
 
 if __name__=='__main__':
-    e = YeastEuler(c=constants, N=2, S=5, Xv=0.001)
-    step = 0.02
-    x_list = e.get_results(step, max_x=300)
+    e = YeastEuler(c=constants, N=0.15, S=500, Xv=0.001)
+    step = 0.005
+    x_list = e.get_results(step, max_x=400)
+    plt.subplot(221)
     e.draw_data(x_list, e.E_list[1:], step, label='Ethanol concentration [g/L]', color='blue', marker='--')
+    plt.subplot(222)
     e.draw_data(x_list, e.S_list[1:], step, label='Sugar concentration [g/L]', color='black')
+    plt.subplot(223)
     e.draw_data(x_list, e.Xv_list[1:], step, label='Biomass concentration [g/L]', color='black', marker='--')
+    plt.subplot(224)
     e.draw_data(x_list, e.N_list[1:], step, label='Nitrogen concentration [mg/L]', color='blue')
 
     Euler.show_plots()
