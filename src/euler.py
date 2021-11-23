@@ -45,7 +45,7 @@ class Euler(ABC):
         plt.legend()
         plt.title('step size: ' + str(dx), fontsize=9)
         plt.xlim(0)
-        # plt.ylim(0)
+        plt.ylim(0)
 
     def draw_data_and_error(self, column: int, x_list: tuple[float], y_list: tuple[float], dx: float, y_list_exact: tuple[float], columns_count: int=4) -> None: # column from 0 to columns_count-1
         """ Draws plot with data and plot with corresponding error on subplot defined by variable 'column'. """
